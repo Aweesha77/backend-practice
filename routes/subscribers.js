@@ -1,9 +1,17 @@
 const express=require('express');
 const router=express.Router();
+const subscriber=require('../models/subscriber.js');
 
 //getting all
-router.get('/', (req,res) =>{
-    res.send('Hello world')
+router.get('/', async(req,res) =>{
+    try{
+        const subscribers= await subscriber.find();
+        res.json(subscribers);
+    }
+    catch(error){
+        res.status(500).json({message:error.message})
+    }
+    
 })
 
 //getting one
