@@ -3,12 +3,12 @@ const router=express.Router();
 
 //getting all
 router.get('/', (req,res) =>{
-
+    res.send('Hello world')
 })
 
 //getting one
 router.get('/:id', (req,res) =>{
-
+    res.send(req.params.id)   //req.params.id=1234 (if url is /1234
 })
 
 //creating one
